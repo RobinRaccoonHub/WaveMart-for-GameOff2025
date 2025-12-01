@@ -779,13 +779,13 @@ size = Vector2(32, 32)
 size = Vector2(2, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3chql"]
-size = Vector2(192, 32)
+size = Vector2(192, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hwuf"]
-size = Vector2(32, 160)
+size = Vector2(64, 160)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xwsh"]
-size = Vector2(224, 32)
+size = Vector2(224, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jvw6"]
 size = Vector2(96, 64)
@@ -797,7 +797,7 @@ size = Vector2(64, 96)
 size = Vector2(64, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3mat"]
-size = Vector2(32, 160)
+size = Vector2(64, 160)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2h51b"]
 size = Vector2(32, 32)
@@ -853,6 +853,7 @@ collision_mask = 2
 script = ExtResource("4_0xwsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GuestSpawner/EggsArea"]
+position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_3chql")
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
@@ -864,6 +865,7 @@ collision_mask = 2
 script = ExtResource("4_0xwsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GuestSpawner/DairyArea"]
+position = Vector2(16, 0)
 shape = SubResource("RectangleShape2D_5hwuf")
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
@@ -875,6 +877,7 @@ collision_mask = 2
 script = ExtResource("4_0xwsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GuestSpawner/MeatArea"]
+position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_0xwsh")
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
@@ -922,6 +925,7 @@ collision_mask = 2
 script = ExtResource("4_0xwsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GuestSpawner/DrinksArea"]
+position = Vector2(-16, 0)
 shape = SubResource("RectangleShape2D_y3mat")
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
