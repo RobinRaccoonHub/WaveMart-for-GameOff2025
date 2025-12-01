@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://7ektt3yjao2i"]
+
+[ext_resource type="Texture2D" uid="uid://l83nfef6jb5r" path="res://2Dcode/Assets/Trash/water bottle crumpled.png" id="1_46uhk"]
+[ext_resource type="Script" uid="uid://cmkip0tkw0un0" path="res://2Dcode/Trash/trash.gd" id="1_boqm3"]
+[ext_resource type="Script" uid="uid://dcvnm6uohmjn3" path="res://2Dcode/Trash/sprite.gd" id="2_ju8y2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_boqm3"]
+radius = 48.0
+
+[node name="Trash" type="Area2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_boqm3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_boqm3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_46uhk")
+script = ExtResource("2_ju8y2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_player_exited"]

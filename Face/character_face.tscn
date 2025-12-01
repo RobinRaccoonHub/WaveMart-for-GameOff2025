@@ -1,0 +1,84 @@
+[gd_scene load_steps=14 format=3 uid="uid://ck60js16dih5e"]
+
+[ext_resource type="Script" uid="uid://cysmq8hefw85t" path="res://Face/cheek.gd" id="1_4j0fg"]
+[ext_resource type="Script" uid="uid://2gd2jtocxlly" path="res://Face/character_face.gd" id="1_gvw2t"]
+[ext_resource type="Texture2D" uid="uid://caqxxv7kcl034" path="res://2Dcode/Assets/face_assets/left_eye/left_eye_1.png" id="2_lysek"]
+[ext_resource type="Script" uid="uid://b2rn8ltuapl0e" path="res://Face/left_eye_sprite.gd" id="2_ujo58"]
+[ext_resource type="Script" uid="uid://bansfdvpvfleo" path="res://Face/audio_player.gd" id="3_1c0p1"]
+[ext_resource type="Texture2D" uid="uid://d3375wn6yvvin" path="res://2Dcode/Assets/face_assets/right_eye/right_eye_1.png" id="4_xftnn"]
+[ext_resource type="Script" uid="uid://cu2yykyk4k16r" path="res://Face/right_eye_sprite.gd" id="5_ikxpf"]
+[ext_resource type="Texture2D" uid="uid://c8m61o1rjgr32" path="res://2Dcode/Assets/face_assets/big_smile/big_smile_2.png" id="7_ahxrj"]
+[ext_resource type="Script" uid="uid://n5yifb28514l" path="res://Face/smile_sprite.gd" id="8_03l5u"]
+[ext_resource type="Texture2D" uid="uid://dprqn8br4dnku" path="res://2Dcode/Assets/face_assets/blank_face_edit.png" id="10_03l5u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2v8bd"]
+radius = 208.1538
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahxrj"]
+size = Vector2(168, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03l5u"]
+size = Vector2(168, 144)
+
+[node name="CharacterFace" type="Area2D"]
+script = ExtResource("1_gvw2t")
+
+[node name="LeftEyeSprite" type="Sprite2D" parent="."]
+position = Vector2(-57, -86)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_lysek")
+script = ExtResource("2_ujo58")
+
+[node name="RightEyeSprite" type="Sprite2D" parent="."]
+position = Vector2(57, -91)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_xftnn")
+script = ExtResource("5_ikxpf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2v8bd")
+
+[node name="LeftCheek" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-64, 0)
+script = ExtResource("1_4j0fg")
+
+[node name="SmileIndicator" type="Node2D" parent="LeftCheek"]
+unique_name_in_owner = true
+
+[node name="SmileSprite" type="Sprite2D" parent="LeftCheek"]
+unique_name_in_owner = true
+position = Vector2(64, 32)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_ahxrj")
+script = ExtResource("8_03l5u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCheek"]
+position = Vector2(-20, 32)
+shape = SubResource("RectangleShape2D_ahxrj")
+debug_color = Color(0.99884444, 0, 0.14337987, 0.41960785)
+
+[node name="RightCheek" type="Area2D" parent="LeftCheek"]
+unique_name_in_owner = true
+position = Vector2(128, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCheek/RightCheek"]
+position = Vector2(20, 32)
+shape = SubResource("RectangleShape2D_03l5u")
+debug_color = Color(0.99884444, 0, 0.14337987, 0.41960785)
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+volume_db = -10.0
+script = ExtResource("3_1c0p1")
+
+[node name="MaybeFace" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-1, -11)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("10_03l5u")
+
+[connection signal="mouse_entered" from="LeftCheek" to="LeftCheek" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LeftCheek" to="LeftCheek" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="LeftCheek/RightCheek" to="LeftCheek" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LeftCheek/RightCheek" to="LeftCheek" method="_on_mouse_exited"]

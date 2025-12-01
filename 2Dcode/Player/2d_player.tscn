@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqnt3m0od2yii"]
+
+[ext_resource type="Script" uid="uid://jgbq17amjgnu" path="res://2Dcode/Player/2d_player.gd" id="1_anwct"]
+[ext_resource type="Script" uid="uid://bfsehbsv5dh86" path="res://2Dcode/Player/smile_and_wave.gd" id="2_7wvmg"]
+[ext_resource type="Texture2D" uid="uid://721x2c1ormwf" path="res://2Dcode/Player/Texture/player_2d.png" id="2_83h1k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7wvmg"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_anwct"]
+radius = 104.0
+
+[node name="2DPlayer" type="CharacterBody2D"]
+modulate = Color(0.7413847, 0.7413847, 0.7413844, 1)
+collision_mask = 7
+script = ExtResource("1_anwct")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7wvmg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.17648688, 0.2951294, 0.8054786, 1)
+texture = ExtResource("2_83h1k")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(0, 16)
+collision_mask = 4
+
+[node name="SmileAndWave" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_mask = 10
+script = ExtResource("2_7wvmg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SmileAndWave"]
+shape = SubResource("CircleShape2D_anwct")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[connection signal="area_entered" from="SmileAndWave" to="SmileAndWave" method="_on_area_entered"]
+[connection signal="area_exited" from="SmileAndWave" to="SmileAndWave" method="_on_area_exited"]
+[connection signal="body_entered" from="SmileAndWave" to="SmileAndWave" method="_on_body_entered"]
+[connection signal="body_exited" from="SmileAndWave" to="SmileAndWave" method="_on_body_exited"]

@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://boh0sry2kfvd6"]
+
+[ext_resource type="FontFile" uid="uid://c21koml53ni6y" path="res://Globals/Montserrat-ExtraBold.ttf" id="1_kojur"]
+
+[resource]
+default_font = ExtResource("1_kojur")
+Label/font_sizes/font_size = 128

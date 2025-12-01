@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://45kwg11rlrls"]
+
+[ext_resource type="Script" uid="uid://cw7gfwdl4pvux" path="res://2Dcode/ConveyorMinigame/checkout_minigame.gd" id="1_4irw6"]
+[ext_resource type="Script" uid="uid://dw61uf27dsd66" path="res://2Dcode/ConveyorMinigame/audio_player.gd" id="2_4duwe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fu1g"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyf61"]
+size = Vector2(32, 96)
+
+[node name="ConveyorTime" type="Node2D"]
+script = ExtResource("1_4irw6")
+
+[node name="CheckingOut" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(32, 96)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckingOut"]
+shape = SubResource("RectangleShape2D_2fu1g")
+
+[node name="PlayerCheckout" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-32, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheckout"]
+shape = SubResource("RectangleShape2D_nyf61")
+
+[node name="PopupLocation" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_4duwe")
+
+[connection signal="body_entered" from="CheckingOut" to="." method="_on_checking_out_body_entered"]
+[connection signal="body_entered" from="PlayerCheckout" to="." method="_on_player_checkout_body_entered"]
+[connection signal="body_exited" from="PlayerCheckout" to="." method="_on_player_checkout_body_exited"]

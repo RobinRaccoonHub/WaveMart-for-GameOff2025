@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b57wxrdimftk1"]
+
+[ext_resource type="Script" uid="uid://loasq2edn6ua" path="res://2Dcode/ConveyorMinigame/conveyor_popup.gd" id="1_6e5eu"]
+[ext_resource type="Texture2D" uid="uid://bgot1w4qq086b" path="res://2Dcode/ConveyorMinigame/Gerald's Keys/Keys/S-Key.png" id="2_vdqt3"]
+
+[node name="ConveyorPop" type="Node2D"]
+script = ExtResource("1_6e5eu")
+my_direction = 2
+metadata/_custom_type_script = "uid://loasq2edn6ua"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vdqt3")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)

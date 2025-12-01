@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://nv2no1tagyiu"]
+
+[ext_resource type="Script" uid="uid://da3itnwyjf7tw" path="res://Arm/arm.gd" id="1_1ee82"]
+[ext_resource type="Texture2D" uid="uid://cwu8jdoprs5o" path="res://Arm/IMG_0799-removebg-preview.png" id="2_m8t0j"]
+[ext_resource type="Texture2D" uid="uid://dadwniikmd1v3" path="res://2Dcode/Assets/broom.png" id="2_wphi8"]
+[ext_resource type="Texture2D" uid="uid://dofm0e8m8icar" path="res://2Dcode/Assets/can64.png" id="4_xxtqq"]
+[ext_resource type="Script" uid="uid://clrysbyangye7" path="res://Arm/audio_player.gd" id="5_xxtqq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wphi8"]
+size = Vector2(480, 288)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ee82"]
+size = Vector2(64, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gy3ep"]
+size = Vector2(16, 16)
+
+[node name="Arm" type="Area2D"]
+script = ExtResource("1_1ee82")
+
+[node name="ClickableArea" type="CollisionShape2D" parent="."]
+position = Vector2(0, -144)
+shape = SubResource("RectangleShape2D_wphi8")
+
+[node name="Hand" type="RigidBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -176)
+collision_layer = 16
+collision_mask = 5
+mass = 0.25
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Hand"]
+position = Vector2(0, 72)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_m8t0j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand"]
+position = Vector2(0, 80.000015)
+shape = SubResource("RectangleShape2D_1ee82")
+
+[node name="Broom" type="Sprite2D" parent="Hand"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-40, 0)
+rotation = 1.1719038
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("2_wphi8")
+
+[node name="Can64" type="Sprite2D" parent="Hand"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(6.000004, 17)
+rotation = -1.2894032
+texture = ExtResource("4_xxtqq")
+
+[node name="Shoulder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shoulder"]
+shape = SubResource("RectangleShape2D_gy3ep")
+
+[node name="Joints" type="Node2D" parent="."]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Joints"]
+node_a = NodePath("../../Shoulder")
+node_b = NodePath("../../Hand")
+bias = 0.9
+angular_limit_enabled = true
+angular_limit_lower = -0.7853982
+angular_limit_upper = 0.7853982
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_xxtqq")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://by0g6vlducps5"]
+
+[ext_resource type="FontFile" uid="uid://c21koml53ni6y" path="res://Globals/Montserrat-ExtraBold.ttf" id="1_8a6sk"]
+[ext_resource type="Script" uid="uid://dnstb2wb5kk1o" path="res://Globals/happiness_ui.gd" id="1_jn572"]
+[ext_resource type="AudioStream" uid="uid://c2ccvarih7tb" path="res://2Dcode/Assets/Audio/click_short_1.wav" id="3_jwujl"]
+
+[sub_resource type="Theme" id="Theme_6r7o0"]
+Label/font_sizes/font_size = 200
+Label/fonts/font = ExtResource("1_8a6sk")
+
+[node name="Happiness" type="Control"]
+process_mode = 3
+z_index = 1000
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_6r7o0")
+script = ExtResource("1_jn572")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("3_jwujl")

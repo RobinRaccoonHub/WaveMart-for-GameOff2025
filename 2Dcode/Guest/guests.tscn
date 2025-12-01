@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://cppic7uxbx84r"]
+
+[ext_resource type="Script" uid="uid://08aau7fay5aw" path="res://2Dcode/Guest/guests.gd" id="1_1vfka"]
+[ext_resource type="Texture2D" uid="uid://b2eq0iq3u6ojl" path="res://2Dcode/Guest/Textures/guest_skin_01.png" id="2_dcgxy"]
+[ext_resource type="Script" uid="uid://cnl3wsug7302g" path="res://2Dcode/Guest/sprite_2d.gd" id="2_jgwup"]
+[ext_resource type="Script" uid="uid://baa13yhdgyd2b" path="res://2Dcode/Guest/audio_player.gd" id="4_cbfsk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_peds2"]
+radius = 8.0
+
+[node name="Guests" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_1vfka")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_peds2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+rotation = 1.5707964
+texture = ExtResource("2_dcgxy")
+script = ExtResource("2_jgwup")
+
+[node name="RayCastFront" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(9, 0)
+target_position = Vector2(12, 0)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(7, -5)
+target_position = Vector2(6, -6)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(7, 5)
+target_position = Vector2(6, 6)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+volume_db = -5.0
+max_distance = 500.0
+attenuation = 3.6049986
+script = ExtResource("4_cbfsk")
+
+[connection signal="finished" from="AudioPlayer" to="AudioPlayer" method="_on_finished"]

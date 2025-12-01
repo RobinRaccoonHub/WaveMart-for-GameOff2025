@@ -1,0 +1,168 @@
+[gd_scene load_steps=7 format=3 uid="uid://bre0m6drf0pdj"]
+
+[ext_resource type="Theme" uid="uid://boh0sry2kfvd6" path="res://Globals/title_screen.tres" id="1_xrh7c"]
+[ext_resource type="Script" uid="uid://iftdfu870jxa" path="res://Globals/title_screen.gd" id="2_xrh7c"]
+[ext_resource type="Shader" uid="uid://chkgvmhm2sgl7" path="res://2Dcode/Assets/blur.gdshader" id="3_w6dsp"]
+[ext_resource type="AudioStream" uid="uid://liidhwveiwhy" path="res://2Dcode/Assets/Audio/Music/cheesy_loop_a2.wav" id="4_w6dsp"]
+[ext_resource type="Script" uid="uid://w1v0oytrt1fp" path="res://Globals/audio_player.gd" id="5_w6dsp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pl5o8"]
+shader = ExtResource("3_w6dsp")
+shader_parameter/blur_amount = 2.8970001376075
+shader_parameter/tint = Color(0, 0, 0, 1)
+shader_parameter/tint_strength = 0.0
+shader_parameter/saturation = 1.0
+
+[node name="TitleScreen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_xrh7c")
+script = ExtResource("2_xrh7c")
+
+[node name="BlurColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_pl5o8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="UIPanelContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -23.5
+offset_right = 20.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIPanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UIPanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1024, 256)
+layout_mode = 2
+text = "Wave Mart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UIPanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Buffer" type="VBoxContainer" parent="UIPanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="UIPanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIPanelContainer/VBoxContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="UIPanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(512, 48)
+layout_mode = 2
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="UIPanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(512, 48)
+layout_mode = 2
+text = "Quit"
+
+[node name="Buffer3" type="VBoxContainer" parent="UIPanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="Buffer2" type="VBoxContainer" parent="UIPanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UIPanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="AboutButton" type="Button" parent="UIPanelContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "About"
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_w6dsp")
+autoplay = true
+script = ExtResource("5_w6dsp")
+
+[node name="BackgroundPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -168.0
+offset_right = 256.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AboutLabel" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 400.0
+offset_top = 208.0
+offset_right = 2000.0
+offset_bottom = 1354.6667
+scale = Vector2(0.3, 0.3)
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 8
+bbcode_enabled = true
+text = "Hello! My name is Robin and this my first project I've done. It's far from perfect, but I think I've learned a lot from this about how to make a game. Working full time and trying to learn how to use Godot has been a challenge but I'm excited to see what I can do after more time.
+
+Huge thanks to my partner Robby for helping me with some visuals and sound effects.
+
+
+Background music by Migfus20 on freesound.org"
+
+[node name="ReturnButton" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 608.0
+offset_top = 576.0
+offset_right = 675.0
+offset_bottom = 605.0
+text = "Return"
+
+[connection signal="pressed" from="UIPanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="UIPanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="UIPanelContainer/VBoxContainer/HBoxContainer/VBoxContainer2/AboutButton" to="." method="_on_about_button_pressed"]
+[connection signal="finished" from="AudioPlayer" to="AudioPlayer" method="_on_finished"]
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]

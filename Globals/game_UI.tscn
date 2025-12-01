@@ -1,0 +1,160 @@
+[gd_scene load_steps=14 format=3 uid="uid://82tx1uqekoxn"]
+
+[ext_resource type="Theme" uid="uid://dtqq61hylkb51" path="res://Globals/level_UI_theme.tres" id="1_wejm6"]
+[ext_resource type="Script" uid="uid://cup22jl2e3y3q" path="res://Globals/game_ui.gd" id="2_nyp3u"]
+[ext_resource type="Texture2D" uid="uid://bkyq7ymq7do8d" path="res://2Dcode/Assets/red_x_64.png" id="3_bybua"]
+[ext_resource type="Texture2D" uid="uid://bifluharf0wax" path="res://2Dcode/Assets/tiny_gear.png" id="3_kk73m"]
+[ext_resource type="Texture2D" uid="uid://dgls2dxa62qy5" path="res://2Dcode/Assets/tiny_question.png" id="3_lmbe1"]
+[ext_resource type="Texture2D" uid="uid://bicy2ihc8dug8" path="res://2Dcode/Assets/tiny_question_pressed.png" id="4_u6kus"]
+[ext_resource type="Texture2D" uid="uid://dhtqnqf6wv0s2" path="res://2Dcode/Assets/tiny_gear_pressed.png" id="5_6ih68"]
+[ext_resource type="Texture2D" uid="uid://coqa2txtfufvj" path="res://2Dcode/Assets/broom64.png" id="5_lmbe1"]
+[ext_resource type="Texture2D" uid="uid://dn36ixf088meh" path="res://2Dcode/Assets/hand64.png" id="7_74e4g"]
+[ext_resource type="Texture2D" uid="uid://c8g8yhu21o2w8" path="res://2Dcode/Assets/hand64_pressed.png" id="8_38opn"]
+[ext_resource type="Texture2D" uid="uid://dn0fq4nr0qdvl" path="res://2Dcode/Assets/broom64_pressed.png" id="10_bybua"]
+[ext_resource type="Texture2D" uid="uid://uhb1oslt76sf" path="res://2Dcode/Assets/basket64.png" id="11_38opn"]
+[ext_resource type="Texture2D" uid="uid://dn5oipl5von4k" path="res://2Dcode/Assets/basket64_pressed.png" id="12_bybua"]
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme = ExtResource("1_wejm6")
+script = ExtResource("2_nyp3u")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_right = 263.0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Buffer2" type="HBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="X1" type="TextureRect" parent="PanelContainer/HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("3_bybua")
+
+[node name="X2" type="TextureRect" parent="PanelContainer/HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("3_bybua")
+
+[node name="X3" type="TextureRect" parent="PanelContainer/HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("3_bybua")
+
+[node name="X4" type="TextureRect" parent="PanelContainer/HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("3_bybua")
+
+[node name="X5" type="TextureRect" parent="PanelContainer/HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("3_bybua")
+
+[node name="X6" type="TextureRect" parent="PanelContainer/HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("3_bybua")
+
+[node name="X7" type="TextureRect" parent="PanelContainer/HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("3_bybua")
+
+[node name="Buffer" type="HBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HelpButton" type="TextureButton" parent="PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+texture_normal = ExtResource("3_lmbe1")
+texture_pressed = ExtResource("4_u6kus")
+
+[node name="SettingsButton" type="TextureButton" parent="PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_wejm6")
+texture_normal = ExtResource("3_kk73m")
+texture_pressed = ExtResource("5_6ih68")
+stretch_mode = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="EmptyButton" type="TextureButton" parent="PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("7_74e4g")
+texture_pressed = ExtResource("8_38opn")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="BroomButton" type="TextureButton" parent="PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("5_lmbe1")
+texture_pressed = ExtResource("10_bybua")
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="PanelContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="StockButton" type="TextureButton" parent="PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("11_38opn")
+texture_pressed = ExtResource("12_bybua")
+
+[connection signal="pressed" from="PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer/HelpButton" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer2/EmptyButton" to="." method="_on_empty_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer3/BroomButton" to="." method="_on_broom_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/HBoxContainer/VBoxContainer4/StockButton" to="." method="_on_stock_button_pressed"]

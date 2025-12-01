@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://ck60js16dih5e"]
+
+[ext_resource type="Script" uid="uid://cysmq8hefw85t" path="res://Face/cheek.gd" id="1_4j0fg"]
+[ext_resource type="Script" uid="uid://2gd2jtocxlly" path="res://Face/character_face.gd" id="1_gvw2t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2v8bd"]
+radius = 128.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_02c0a"]
+radius = 24.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4j0fg"]
+size = Vector2(16, 16)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gvw2t"]
+size = Vector2(16, 16)
+
+[node name="CharacterFace" type="Area2D"]
+script = ExtResource("1_gvw2t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2v8bd")
+
+[node name="LeftCheek" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-64, 0)
+script = ExtResource("1_4j0fg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCheek"]
+shape = SubResource("CircleShape2D_02c0a")
+debug_color = Color(0.99884444, 0, 0.14337987, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftCheek"]
+texture = SubResource("PlaceholderTexture2D_4j0fg")
+
+[node name="RightCheek" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(64, 0)
+script = ExtResource("1_4j0fg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightCheek"]
+shape = SubResource("CircleShape2D_02c0a")
+debug_color = Color(0.99884444, 0, 0.14337987, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="RightCheek"]
+texture = SubResource("PlaceholderTexture2D_gvw2t")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

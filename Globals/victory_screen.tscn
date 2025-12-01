@@ -1,0 +1,191 @@
+[gd_scene load_steps=8 format=3 uid="uid://bsagmsyymcwkt"]
+
+[ext_resource type="Texture2D" uid="uid://dfc3l7f7tu7j" path="res://2Dcode/Assets/victory_screen/blank_receipt.png" id="1_3rv8w"]
+[ext_resource type="FontFile" uid="uid://c8vxrlf11nvve" path="res://2Dcode/Assets/Rubik-Bold.ttf" id="1_wig86"]
+[ext_resource type="Shader" uid="uid://chkgvmhm2sgl7" path="res://2Dcode/Assets/blur.gdshader" id="2_4oer8"]
+[ext_resource type="Script" uid="uid://bqgdnvj5ap12v" path="res://Globals/victory_screen.gd" id="2_68s0e"]
+[ext_resource type="Script" uid="uid://bbohbvkmbjhct" path="res://Globals/victory_audio_player.gd" id="5_02f6s"]
+
+[sub_resource type="Theme" id="Theme_3rv8w"]
+default_font = ExtResource("1_wig86")
+Button/font_sizes/font_size = 128
+Button/fonts/font = ExtResource("1_wig86")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/font_sizes/bold_font_size = 70
+RichTextLabel/font_sizes/italics_font_size = 48
+RichTextLabel/font_sizes/normal_font_size = 32
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_68s0e"]
+shader = ExtResource("2_4oer8")
+shader_parameter/blur_amount = 2.8970001376075
+shader_parameter/tint = Color(0, 0, 0, 1)
+shader_parameter/tint_strength = 0.0
+shader_parameter/saturation = 1.0
+
+[node name="VictoryScreen" type="Control"]
+process_mode = 3
+z_index = 11
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_3rv8w")
+script = ExtResource("2_68s0e")
+
+[node name="BlurColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+material = SubResource("ShaderMaterial_68s0e")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BlankReceipt" type="Sprite2D" parent="."]
+process_mode = 3
+position = Vector2(600, 336)
+texture = ExtResource("1_3rv8w")
+
+[node name="EndOfDay" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 0
+offset_left = 520.00006
+offset_top = 104.00001
+offset_right = 915.46783
+offset_bottom = 189.74835
+rotation = -0.022689281
+scale = Vector2(0.5, 0.5)
+bbcode_enabled = true
+text = "[b]End Of Day[/b]"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="NumberOfGuests" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 0
+offset_left = 523.0
+offset_top = 174.0
+offset_right = 923.0
+offset_bottom = 239.48389
+rotation = -0.022689281
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[u]Number of guests[/u]"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="GuestNumbers" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 0
+offset_left = 592.00006
+offset_top = 205.00002
+offset_right = 829.87885
+offset_bottom = 297.15668
+rotation = -0.022689281
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "0"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AverageHappiness" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 0
+offset_left = 517.0
+offset_top = 273.0
+offset_right = 947.4392
+offset_bottom = 338.51624
+rotation = -0.022689281
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[u]Average Happiness[/u]"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="HappinessMeter" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 0
+offset_left = 564.0
+offset_top = 314.00003
+offset_right = 788.0
+offset_bottom = 354.00003
+rotation = -0.022689281
+scale = Vector2(0.5, 0.5)
+text = "uh oh!!"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="EmploymentStatus" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 0
+offset_left = 518.0
+offset_top = 376.00003
+offset_right = 960.69495
+offset_bottom = 443.27
+rotation = -0.022689281
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[u]Employment Status[/u]"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="YouHaveBeen" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 0
+offset_left = 554.00006
+offset_top = 420.0
+offset_right = 841.69977
+offset_bottom = 460.0
+rotation = -0.022689281
+scale = Vector2(0.5, 0.5)
+text = "You have been..."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="FIRED" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 0
+offset_left = 557.0
+offset_top = 448.0
+offset_right = 1190.7031
+offset_bottom = 617.9
+rotation = 0.3525565
+scale = Vector2(0.5, 0.5)
+theme_override_colors/default_color = Color(0.80813736, 3.272891e-06, 7.70092e-07, 1)
+theme_override_font_sizes/normal_font_size = 96
+text = "FIRED!!!"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+panning_strength = 0.0
+script = ExtResource("5_02f6s")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 616.0
+offset_right = 1215.0
+offset_bottom = 776.0
+scale = Vector2(0.5, 0.5)
+text = "Title Screen"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
